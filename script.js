@@ -7,8 +7,34 @@ let alphabet = ["a", "b", "c", "d", "e", "f", "g", "h", "i", "j", "k", "l", "m",
 let alphabetUpperCase = ["A","B","C","D","E","F","G","H","I","J","K","L","M","N","O","P","Q","R","S","T","U","V","W","X","Y","Z"]
 
 function generatePassword() {
-  
+  let userOptions = prompt("Enter a number from 8 to 128.");
+  // parseInt changes strings into numbers.
+  let passwordChoice = parseInt(userOptions);
+
+  let wantsNumbers = false;
+  let wantsLowercase = false;
+  let wantsUppercase = false;
+  let wantsSpecialCharacters = false;
+
+  if (isNaN(passwordChoice) || passwordChoice < 8 || passwordChoice > 128) {
+    window.alert("Invalid input! Password length must be a number from 8 to 128.");
+    return;
+  }
+
+  if (window.confirm("Do you want numbers in your password?")) {
+    wantsNumbers = true;
+  }
+  if (window.confirm("Do you want lowercase letters in your password?")) {
+    wantsLowercase = true;
+  }
+  if (window.confirm("Do you want uppercase letters in your password?")) {
+    wantsUppercase = true;
+  }
+  if (window.confirm("Do you want special characters in your password?")) {
+    wantsSpecialCharacters = true;
+  }
 }
+
 // Write password to the #password input
 function writePassword() {
   var password = generatePassword();
