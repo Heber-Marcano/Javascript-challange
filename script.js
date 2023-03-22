@@ -46,7 +46,18 @@ function generatePassword() {
   if (wantsSpecialCharacters) {
     characters = characters.concat(specialChar);
   }
+  if (characters.length === 0) {
+    window.alert("You must select at least one type of characters!");
+    return;
+  }
+
+  let password = "";
+  for (let i = 0; i < passwordChoice; i++) {
+    password += characters[Math.floor(Math.random() * characters.length)];
+  }
+  return password;
 }
+
 
 // Write password to the #password input
 function writePassword() {
