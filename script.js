@@ -33,6 +33,19 @@ function generatePassword() {
   if (window.confirm("Do you want special characters in your password?")) {
     wantsSpecialCharacters = true;
   }
+  let characters = [];
+  if (wantsNumbers) {
+    characters = characters.concat(numbers); 
+  }
+  if (wantsLowercase) {
+    characters = characters.concat(alphabet);
+  }
+  if (wantsUppercase) {
+    characters = characters.concat(alphabetUpperCase);
+  }
+  if (wantsSpecialCharacters) {
+    characters = characters.concat(specialChar);
+  }
 }
 
 // Write password to the #password input
