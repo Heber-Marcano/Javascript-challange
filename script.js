@@ -1,6 +1,6 @@
 // Assignment Code
 var generateBtn = document.querySelector("#generate");
-// use Math.random to 
+// 
 let specialChar = ["!", ".", "/", "$", "%", "^", "&", "*", "<", ">", "-", "+", ","];
 let numbers = [1,2,3,4,5,6,7,8,9,0];
 let alphabet = ["a", "b", "c", "d", "e", "f", "g", "h", "i", "j", "k", "l", "m", "n", "o", "p", "q", "r", "s", "t", "u", "v", "w", "x", "y", "z"];
@@ -15,22 +15,25 @@ function generatePassword() {
   let wantsLowercase = false;
   let wantsUppercase = false;
   let wantsSpecialCharacters = false;
-
+  
+  if(!userOptions){
+    return;
+  }
   if (isNaN(passwordChoice) || passwordChoice < 8 || passwordChoice > 128) {
-    window.alert("Invalid input! Password length must be a number from 8 to 128.");
+    alert("Invalid input! Password length must be a number from 8 to 128.");
     return;
   }
 
-  if (window.confirm("Do you want numbers in your password?")) {
+  if (confirm("Do you want numbers in your password?")) {
     wantsNumbers = true;
   }
-  if (window.confirm("Do you want lowercase letters in your password?")) {
+  if (confirm("Do you want lowercase letters in your password?")) {
     wantsLowercase = true;
   }
-  if (window.confirm("Do you want uppercase letters in your password?")) {
+  if (confirm("Do you want uppercase letters in your password?")) {
     wantsUppercase = true;
   }
-  if (window.confirm("Do you want special characters in your password?")) {
+  if (confirm("Do you want special characters in your password?")) {
     wantsSpecialCharacters = true;
   }
   let characters = [];
@@ -47,7 +50,7 @@ function generatePassword() {
     characters = characters.concat(specialChar);
   }
   if (characters.length === 0) {
-    window.alert("You must select at least one type of characters!");
+    alert("You must select at least one type of characters!");
     return;
   }
 
